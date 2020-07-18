@@ -1,16 +1,17 @@
 ---
 layout: default
 title: How to Debug Google App Engine for Golang with VSCode
-permalink : /golang_appengine/
+permalink: /
 ---
+
 # How to Debug Google App Engine for Golang with VSCode
 
 ## Summary
 
-* [Basic](#basic)
-* [Spec](#spec)
-* [Instraction](#instraction)
-* [debugging devserver](#debugging-devserver)
+- [Basic](#basic)
+- [Spec](#spec)
+- [Instraction](#instraction)
+- [debugging devserver](#debugging-devserver)
 
 ## Basic
 
@@ -22,39 +23,38 @@ see [Golang](../golang/)
 
 ## Instruction
 
-* install google-app-platform sdk : https://cloud.google.com/sdk/install
-	* we installed to `~/google-cloud-sdk`
-* set PATH to `google-cloud-sdk/bin`
-* create go symbolic link in sdk (`goapp` command in goroot can be used as `go` command)
+- install google-app-platform sdk : https://cloud.google.com/sdk/install \* we installed to `~/google-cloud-sdk`
+- set PATH to `google-cloud-sdk/bin`
+- create go symbolic link in sdk (`goapp` command in goroot can be used as `go` command)
 
 ```
 $ln -s go ~/google-cloud-sdk/platform/google_appengine/goroot-1.9/goapp
 ```
 
-* install vscode-go extension
-* set workspace settings
+- install vscode-go extension
+- set workspace settings
 
 ```json
 {
-	"go.goroot": "~/google-cloud-sdk/platform/google_appengine/goroot-1.9",
-	"go.gopath": "~/google-cloud-sdk/platform/google_appengine/gopath",
-	"go.toolsGopath": "~/google-cloud-sdk/platform/google_appengine/gopath",
+  "go.goroot": "~/google-cloud-sdk/platform/google_appengine/goroot-1.9",
+  "go.gopath": "~/google-cloud-sdk/platform/google_appengine/gopath",
+  "go.toolsGopath": "~/google-cloud-sdk/platform/google_appengine/gopath"
 }
 ```
 
-* execute F1->`Go: Install/Update Tools`
+- execute F1->`Go: Install/Update Tools`
 
 ### when failing install some packages (ex: delve, godoc)
 
-* check goapp version
+- check goapp version
 
 ```
 $~/google-cloud-sdk/platform/google_appengine/goroot-1.9/bin/goapp version
 go version 1.9.4 (appengine-1.9.71) darwin/amd64
 ```
 
-* download same version runtime from https://golang.org/dl/
-* set GOROOT and GOPATH, and install extensions
+- download same version runtime from https://golang.org/dl/
+- set GOROOT and GOPATH, and install extensions
 
 ```
 $export GOPATH=~/google-cloud-sdk/platform/google_appengine/gopath
@@ -102,13 +102,13 @@ same for remote debugging
 
 ### how to
 
-* run `dev_appserver.py` with `--go_debugging`
+- run `dev_appserver.py` with `--go_debugging`
 
 ```
 $dev_appserver.py app.yaml --go_debugging
 ```
 
-* check pid and dlv attaches it with headless and listen settings
+- check pid and dlv attaches it with headless and listen settings
 
 ```
 $ps au | grep _go_ap[p]
@@ -117,4 +117,4 @@ $dlv attach 16353 --headless --listen=:2345 --log
 API server listening at: [::]:2345
 ```
 
-* start debug at VSCode
+- start debug at VSCode
