@@ -1,4 +1,4 @@
-# How to Debug Google App Engine for Golang with VSCode
+# How to Debug Google App Engine for Golang with VS Code
 
 ## Summary
 
@@ -111,4 +111,4 @@ $dlv attach 16353 --headless --listen=:2345 --log
 API server listening at: [::]:2345
 ```
 
-- start debug at VSCode
+- start debug at VS Code
