@@ -1,9 +1,3 @@
----
-layout: default
-title: How to Debug Google App Engine for Golang with VSCode
-permalink: /
----
-
 # How to Debug Google App Engine for Golang with VSCode
 
 ## Summary
